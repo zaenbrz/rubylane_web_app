@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/dashboard.css" rel="stylesheet">
+    <style>
+        .img-small {
+            max-width: 400px; /* Adjust this value as needed */
+            max-height: 300px; /* Adjust this value as needed */
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">E Diary</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Welcome, {{ username }}</h1>
+        <div class="entry-container">
+            {% for entry in entries %}
+            <div class="entry-card">
+                <h5>{{ entry.title }}</h5>
+                <p>{{ entry.content }}</p>
+                {% if entry.image_path %}
+                    <img src="{{ entry.image_path }}" class="img-small mt-3" alt="Entry Image">
+                {% endif %}
+                <div class="btn-group">
+                    <a href="/diary/edit_entry/{{ entry._id }}" class="btn btn-edit">Edit</a>
+                    <button onclick="deleteEntry('{{ entry._id }}')" class="btn btn-delete">Delete</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/diary/add_entry" class="btn btn-primary btn-add">Add New Entry</a>
+    </div>
+
+    <script>
+        async function deleteEntry(entryId) {
+            const response = await fetch(`/diary/delete_entry/${entryId}`, {
+                method: 'POST'
+            });
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Failed to delete entry.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Entry</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .img-small {
+            max-width: 200px; /* Adjust this value as needed */
+            max-height: 200px; /* Adjust this value as needed */
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Edit Entry</h1>
+        <form method="post" action="/diary/edit_entry/{{ entry._id }}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ entry.title }}" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" id="content" name="content" rows="3" required>{{ entry.content }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="file">Upload Image (optional)</label>
+                <input type="file" class="form-control-file" id="file" name="file">
+                {% if entry.image_path %}
+                    <img src="{{ entry.image_path }}" class="img-small mt-3" alt="Entry Image">
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Update Entry</button>
+        </form>
+    </div>
+</body>
+</html>

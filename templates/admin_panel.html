@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/admin_panel.css">
+    <script>
+        function confirmDelete(userId) {
+            if (confirm("Are you sure you want to delete this user?")) {
+                document.getElementById('deleteForm_' + userId).submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admin Panel</h1>
+        </header>
+
+        <section class="users-section">
+            <h2>Users:</h2>
+            <ul class="users-list">
+                {% for user in users %}
+                <li class="user-item">
+                    <span>{{ user.username }}</span>
+                    <form id="deleteForm_{{ user._id }}" action="/admin/admin/user/delete/{{ user._id }}" method="post">
+                        <button type="button" class="btn-delete" onclick="confirmDelete('{{ user._id }}')">Delete Account</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <footer>
+            <p><a href="/admin/admin/logout">Logout</a></p>
+        </footer>
+    </div>
+</body>
+</html>
