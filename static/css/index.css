@@ -1,0 +1,77 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    color: #fff;
+    
+}
+
+.bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+
+
+.welcome-text {
+    animation: fadeIn 2s ease-in-out;
+    font-family: "Pacifico"; /* Apply Yeseva One font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow */
+}
+
+.content h2 {
+    font-family: Lobster Two;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.navbar {
+    background-color: transparent; /* Transparent background */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: 'Pacifico';
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa; /* Bootstrap's light gray color for hover */
+}

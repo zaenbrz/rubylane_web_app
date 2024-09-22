@@ -1,0 +1,125 @@
+/* dashboard.css */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
+    background-color: #f0f0f0; /* Light background color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.navbar {
+    background-color: #7469B6; /* Purple background color */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #fff; /* White text color */
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.entry-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.entry-card {
+    background-color: #fff; /* White background color */
+    border: 1px solid #eee;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for 3D effect */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: calc(50% - 15px); /* Adjust this as needed for responsiveness */
+    padding: 20px;
+}
+
+.entry-card:hover {
+    transform: scale(1.05); /* Grow a bit on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+}
+
+.entry-card h5 {
+    color: #7469B6; /* Purple text color */
+    margin-bottom: 10px;
+}
+
+.entry-card p {
+    color: #333; /* Dark text color */
+    margin-bottom: 15px;
+}
+
+.img-small {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    display: block; /* Center the image */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.btn-group {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #AD88C6; /* Purple background color */
+    border-color: #AD88C6; /* Matching border color */
+    color: #fff; /* White text color */
+}
+
+.btn-edit:hover {
+    background-color: #E1AFD1; /* Lighter purple on hover */
+    border-color: #E1AFD1;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #FF4500; /* Red background color */
+    border-color: #FF4500;
+    color: #fff; /* White text color */
+}
+
+.btn-delete:hover {
+    background-color: #FF6347; /* Lighter red on hover */
+    border-color: #FF6347;
+    color: #fff;
+}
+
+.btn-add {
+    background-color: #E1AFD1; /* Lighter purple */
+    border-color: #E1AFD1;
+    color: #fff; /* White text color */
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-add:hover {
+    background-color: #FFE6E6; /* Lighter pink on hover */
+    border-color: #FFE6E6;
+    color: #fff;
+}
